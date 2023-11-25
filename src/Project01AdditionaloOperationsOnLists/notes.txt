@@ -1,0 +1,35 @@
+XList features:
+-List features
+-Set features: unique
+
+-additional methods:
+union(any_collecCtion)  -  returns  a new x-list containing elements from both old x-list and collection from the method argument,
+-> basically addALL(collection) with different return;
+-> list
+-> modifies
+
+diff(any_collection) - returns a x-list containing only those elements of that lists, which are not present in the collection from method argument,
+-> basically removeAll
+-> list
+-> modifies
+
+unique() - returns a new x-list, which  contains all unique elements of the list
+-> set
+-> modifies
+
+combine() - returns a x-list that contains combination of elements of x-list
+-> a lot of combinations (e0.size()*e1.size()*...), how to be efficient?
+-> modifies
+
+collect(Function) - returns a new x-list which elements are results of function applied to elements of the x-list
+-> doesnt modify
+-> maybe use stream?
+
+join([sep]) - returns a string which is concatenation of elements of the list, optionally with the interposition of a given separator
+-> maybe use stream
+
+
+forEachWithIndex(consumer_with_two_arguments: element, index) - for iterating over list with access to elements and it's indexes
+-> list
+
+

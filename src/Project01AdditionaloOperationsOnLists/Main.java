@@ -9,7 +9,7 @@ ofTokens(string, [ sep ]) - returns x-list of string symbols, separated by sep s
 
 In addition you should provide methods:
 
-union(any_collection)  -  returns  a new x-list containing elements from both old x-list and collection from the method argument,
+union(any_collecCtion)  -  returns  a new x-list containing elements from both old x-list and collection from the method argument,
 diff(any_collection) - returns a x-list containing only those elements of that lists, which are not present in the collection from method argument,
 unique() - returns a new x-list, which  contains all unique elements of the list
 combine() - returns a x-list that contains combination of elements of x-list
