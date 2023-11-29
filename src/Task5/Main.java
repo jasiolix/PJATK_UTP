@@ -1,7 +1,5 @@
 package Task5;
 
-
-// remember to add package before turinging in !
 import java.io.*;
 import java.util.*;
 

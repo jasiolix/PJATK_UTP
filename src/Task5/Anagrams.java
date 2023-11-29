@@ -3,14 +3,14 @@ package Task5;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.HashMap;
-import java.util.stream.Collectors;
 
 public class Anagrams {
-    private List<String> list;
+    private final List<String> list;
 
     public Anagrams(String allWords) throws FileNotFoundException {
         Scanner scan = new Scanner(new File(allWords));
@@ -21,9 +21,9 @@ public class Anagrams {
     }
 
     public List<List<String>> getSortedByAnQty() {
-        Map<AnagramInvariant, List<String>> map = new HashMap<>();
+        Map<String, List<String>> map = new HashMap<>();
         for(String word : list){
-            AnagramInvariant invariant = new AnagramInvariant(word);
+            String invariant = anagramInvariant(word);
             map.putIfAbsent(invariant, new ArrayList<>());
             map.get(invariant).add(word);
         }
@@ -33,11 +33,17 @@ public class Anagrams {
     }
 
     public String getAnagramsFor(String wtf) {
-        AnagramInvariant invariant = new AnagramInvariant(wtf);
+        String invariant = anagramInvariant(wtf);
         List<String> anagrams = list.stream()
-                .filter(e -> new AnagramInvariant(e).equals(invariant))
+                .filter(e -> anagramInvariant(e).equals(invariant))
                 .filter(e -> !e.equals(wtf))
-                .collect(Collectors.toList());
+                .toList();
         return wtf + ": " + anagrams;
+    }
+
+    public String anagramInvariant(String word){
+        char[] chars = word.toCharArray();
+        Arrays.sort(chars);
+        return new String(chars);
     }
 }
