@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/src/Project01AdditionaloOperationsOnLists" />
       <excludeFolder url="file://$MODULE_DIR$/src/Task3_Lambdas/UTP3_MJ_S28977" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Project02ProgLang" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

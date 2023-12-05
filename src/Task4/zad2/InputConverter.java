@@ -11,7 +11,7 @@ class InputConverter<T> {
     }
 
 
-    public <R> R convertBy(Function<?,?>... functions) { //Function means we declare that functions can be of any generic type Function<..., ...>
+    public <R> R convertBy(Function... functions) { //Function means we declare that functions can be of any generic type Function<..., ...>
         Object res = fname; //Be default T is bound to class Object
         for (Function function : functions)
             res = function.apply(res); // apply takes anything as an argument that extends Object, bc we used raw type Function
@@ -21,7 +21,7 @@ class InputConverter<T> {
 
 /*
  raw type Function: more flexible code typing (bc we can create only one convertBy method for any number of any functions), because compiler doesn't check
- if provided function is able to perform apply on res (e.g. if the function is of generic type Function<String, Integer> (runtime type Function<Object, Object>
+ if provided function is able to perform apply on res (e.g. if the function is of generic type Function<String, Integer> (runtime type Function<Object, Object>)
  and fname is of runtime type Double, than there would be a runtime error, bc apply(res) wouldn't work). Basically, this convertBy method is so short to write,
  because we didn't write into it a way for compiler to check if types of functions are correct, which seems a good idea, bc less code is nicer.
  However, this has a serious consequence - we need to make sure OURSELVES (and generally humans are more error-prone than compilers)
