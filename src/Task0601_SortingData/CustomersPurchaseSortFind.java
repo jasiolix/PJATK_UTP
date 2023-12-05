@@ -58,13 +58,9 @@ public class CustomersPurchaseSortFind {
 
     private Comparator<Purchase> toComparator(String attribute) {
         return switch (attribute){
-            case "names" -> (p1, p2) -> {
-                int res = p1.getCustomer().getName().compareTo(p2.getCustomer().getName());
-                if(res == 0)
-                    res = p1.getCustomer().getId().compareTo(p2.getCustomer().getId());
-                return res;
-            };
-            // why such expression: case "names" -> Comparator.comparing(p -> p.getCustomer().getName()).thenComparing(p -> p.getCustomer().getId()); doesnt work??????
+            case "names" ->
+                    Comparator.comparing((Purchase p)-> p.getCustomer().getName()).thenComparing(p -> p.getCustomer().getId());
+            // Why do I need to add (Purchase p) instead of p to make it work????
             case "costs" -> (p1, p2) -> {
                 int res = Double.compare(p2.getPrice()*p2.getQuantity(), p1.getPrice()*p1.getQuantity());
                 if(res == 0)

@@ -8,7 +8,6 @@ import java.util.function.Predicate;
 public class ProgLang {
     ProgLang(String fname){
         readFile(fname);
-
     }
 
     private void readFile(String fname) {
